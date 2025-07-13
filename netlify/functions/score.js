@@ -1,7 +1,6 @@
 // netlify/functions/score.js
 import { Irys } from "@irys/sdk";
-import dotenv from "dotenv";
-dotenv.config();                             // allows local testing with a .env file
+                            // allows local testing with a .env file
 
 // --------------  Configure Irys client -------------- //
 const irys = new Irys({
@@ -19,7 +18,7 @@ export async function handler(event) {
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: "Method Not Allowed" };
   }
-
+                                                                                                       
   try {
     const body = JSON.parse(event.body || "{}");
     const { nickname, moves, time } = body;
