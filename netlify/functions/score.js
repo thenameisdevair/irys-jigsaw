@@ -8,7 +8,10 @@ const irys = new Irys({
   network: "mainnet",
   token:   "matic",
   providerUrl: "https://polygon-rpc.com",
-  key: JSON.parse(process.env.IRYS_KEY)      // <- environment variable
+  key: process.env.IRYS_KEY.startsWith('{')
+  ? JSON.parse(process.env.IRYS_KEY)   // JSON keyfile
+  : process.env.IRYS_KEY               // raw 0x hex
+ // <- environment variable
 });
 
 // --------------  Netlify handler -------------- //
